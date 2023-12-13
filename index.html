@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+<input type="text" placeholder="Enter iteretion value">
+<button class="btn">Click</button>
+<p></p>
+    </div>
+
+
+<script>
+const input = document.querySelector("input")
+const btn = document.querySelector("button")
+const output = document.querySelector("p")
+
+const person ={
+name : "hansha jangir",
+age : "22",
+study : "developer"
+
+}
+
+const keys = Object.keys(person)
+let i;
+
+btn.addEventListener("click",selectedIteretion)
+
+function selectedIteretion(){
+    const intputValue = input.value
+    if(intputValue === ""){
+        alert("Enter Value")
+    }
+    else{i = Number(input.value)
+recurssion()}
+
+}
+
+
+function recurssion(){
+output.innerHTML = "";
+let j =0;
+ const call = setInterval(()=>{
+    if(j === keys.length) {
+        clearInterval(call)
+        if(--i>0)recurssion()
+    }
+   
+    else{
+output.innerHTML += person[keys[j++]] + "</br>"
+    }
+
+},1000)
+
+}
+
+
+
+
+</script>
+</body>
+</html>
